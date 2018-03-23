@@ -1,0 +1,76 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : add FP argbase ,
+2 : mul #1 #4 ,
+3 : adda (1) (2) ,
+26 : load (3) ]"
+}
+node: {
+title: "2"
+label: "2[
+46 : phi #2 (42) ,
+45 : phi (26) (41) ,
+28 : cmp (46) #5 ,
+29 : bgt (28) [5] ]"
+}
+node: {
+title: "3"
+label: "3[
+31 : mul #4 (46) ,
+32 : adda (1) (31) ,
+33 : load (32) ,
+34 : cmp (33) (45) ,
+35 : ble (34) [5] ]"
+}
+node: {
+title: "4"
+label: "4[
+39 : load (32) ]"
+}
+node: {
+title: "5"
+label: "5[
+41 : phi (45) (39) ,
+42 : add #1 (46) ,
+44 : bra [2] ]"
+}
+node: {
+title: "6"
+label: "6[
+47 : return (45) ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "6"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "3"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "5"
+targetname: "2"
+}
+node: {
+title: "7"
+label: "7[
+]"
+}
+}

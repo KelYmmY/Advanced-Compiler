@@ -1,0 +1,181 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : move #9 q_1 ,
+2 : move #3 par_2 ]"
+}
+node: {
+title: "2"
+label: "2[
+20 : phi q_20 q_15 q_1 ,
+19 : phi par_19 par_17 par_2 ,
+3 : cmp #3 par_19 ,
+4 : bge (3) [8] ]"
+}
+node: {
+title: "3"
+label: "3[
+5 : cmp #2 #3 ,
+6 : bge (5) [5] ]"
+}
+node: {
+title: "4"
+label: "4[
+7 : add par_19 q_20 ,
+8 : move (7) q_8 ]"
+}
+node: {
+title: "5"
+label: "5[
+9 : phi q_9 q_20 q_8 ]"
+}
+node: {
+title: "6"
+label: "6[
+15 : phi q_15 q_13 q_9 ,
+10 : cmp #4 q_15 ,
+11 : blt (10) [7] ]"
+}
+node: {
+title: "7"
+label: "7[
+12 : sub par_19 q_15 ,
+13 : move (12) q_13 ,
+14 : bra [6] ]"
+}
+node: {
+title: "8"
+label: "8[
+16 : sub q_15 #3 ,
+17 : move (16) par_17 ,
+18 : bra [2] ]"
+}
+node: {
+title: "9"
+label: "9[
+21 : add par_19 q_20 ,
+22 : move (21) x_22 ,
+23 : move #4 af_23 ,
+24 : return x_22 ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "9"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "3"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "7"
+}
+edge: { sourcename: "6"
+targetname: "8"
+}
+edge: { sourcename: "7"
+targetname: "6"
+}
+edge: { sourcename: "8"
+targetname: "2"
+}
+node: {
+title: "16"
+label: "16[
+42 : add par_40 q_41 ,
+43 : move (42) x_43 ,
+44 : return x_43 ]"
+}
+node: {
+title: "10"
+label: "10[
+25 : move #9 q_25 ,
+26 : move #3 par_26 ]"
+}
+node: {
+title: "11"
+label: "11[
+41 : phi q_41 q_36 q_25 ,
+40 : phi par_40 par_38 par_26 ,
+27 : cmp #3 par_40 ,
+28 : bge (27) [15] ]"
+}
+node: {
+title: "12"
+label: "12[
+29 : add par_40 q_41 ,
+30 : move (29) q_30 ]"
+}
+node: {
+title: "13"
+label: "13[
+36 : phi q_36 q_34 q_30 ,
+31 : cmp #4 q_36 ,
+32 : blt (31) [14] ]"
+}
+node: {
+title: "14"
+label: "14[
+33 : sub par_40 q_36 ,
+34 : move (33) q_34 ,
+35 : bra [13] ]"
+}
+node: {
+title: "15"
+label: "15[
+37 : sub q_36 #3 ,
+38 : move (37) par_38 ,
+39 : bra [11] ]"
+}
+edge: { sourcename: "10"
+targetname: "11"
+}
+edge: { sourcename: "11"
+targetname: "16"
+}
+edge: { sourcename: "11"
+targetname: "12"
+}
+edge: { sourcename: "12"
+targetname: "13"
+}
+edge: { sourcename: "13"
+targetname: "14"
+}
+edge: { sourcename: "13"
+targetname: "15"
+}
+edge: { sourcename: "14"
+targetname: "13"
+}
+edge: { sourcename: "15"
+targetname: "11"
+}
+node: {
+title: "17"
+label: "17[
+45 : add #3 too_45 ,
+46 : move (45) foo_46 ,
+47 : add foo_46 #6 ,
+48 : move (47) af_48 ]"
+}
+}

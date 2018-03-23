@@ -1,0 +1,81 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+]"
+}
+node: {
+title: "2"
+label: "2[
+3 : cmp #1 #2 ,
+4 : ble (3) [4] ]"
+}
+node: {
+title: "3"
+label: "3[
+5 : add #1 #1 ]"
+}
+node: {
+title: "4"
+label: "4[
+7 : add #2 #1 ]"
+}
+node: {
+title: "5"
+label: "5[
+9 : phi (5) #1 ,
+10 : phi #2 (7) ]"
+}
+node: {
+title: "6"
+label: "6[
+11 : cmp (9) (10) ,
+12 : bge (11) [8] ]"
+}
+node: {
+title: "7"
+label: "7[
+13 : sub (9) #1 ]"
+}
+node: {
+title: "8"
+label: "8[
+15 : phi (9) (13) ,
+16 : write (15) ,
+17 : write (10) ,
+18 : end ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "4"
+}
+edge: { sourcename: "3"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "7"
+}
+edge: { sourcename: "6"
+targetname: "8"
+}
+edge: { sourcename: "7"
+targetname: "8"
+}
+}

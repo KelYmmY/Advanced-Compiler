@@ -1,0 +1,46 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : move #1 a_1 ]"
+}
+node: {
+title: "2"
+label: "2[
+9 : phi a_9 a_7 a_1 ,
+2 : cmp a_9 b_2 ,
+3 : beq (2) [3] ]"
+}
+node: {
+title: "3"
+label: "3[
+4 : add a_9 #1 ,
+5 : move (4) b_5 ,
+6 : mul a_9 #2 ,
+7 : move (6) a_7 ,
+8 : bra [2] ]"
+}
+node: {
+title: "4"
+label: "4[
+10 : move a_9 b_10 ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "4"
+}
+edge: { sourcename: "3"
+targetname: "2"
+}
+}

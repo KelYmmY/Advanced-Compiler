@@ -1,0 +1,140 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "5"
+label: "5[
+15 : move #10 i_15 ,
+16 : move #10 j_16 ]"
+}
+node: {
+title: "6"
+label: "6[
+39 : phi j_39 j_16 j_30 ,
+38 : phi i_38 i_15 i_36 ,
+17 : cmp i_38 #4 ,
+18 : bge (17) [10] ]"
+}
+node: {
+title: "7"
+label: "7[
+]"
+}
+node: {
+title: "8"
+label: "8[
+30 : phi j_30 j_39 j_28 ,
+19 : cmp j_30 #4 ,
+20 : bge (19) [9] ]"
+}
+node: {
+title: "9"
+label: "9[
+21 : add FP bbase ,
+22 : mul i_38 #4 ,
+23 : adda (21) (22) ,
+24 : mul j_30 #4 ,
+25 : adda (23) (24) ,
+26 : store j_30 (25) ,
+27 : add j_30 #1 ,
+28 : move (27) j_28 ,
+29 : bra [8] ]"
+}
+node: {
+title: "10"
+label: "10[
+31 : add FP abase ,
+32 : mul i_38 #4 ,
+33 : adda (31) (32) ,
+34 : store i_38 (33) ,
+35 : add i_38 #1 ,
+36 : move (35) i_36 ,
+37 : bra [6] ]"
+}
+node: {
+title: "11"
+label: "11[
+]"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "7"
+}
+edge: { sourcename: "6"
+targetname: "11"
+}
+edge: { sourcename: "7"
+targetname: "8"
+}
+edge: { sourcename: "8"
+targetname: "9"
+}
+edge: { sourcename: "8"
+targetname: "10"
+}
+edge: { sourcename: "9"
+targetname: "8"
+}
+edge: { sourcename: "10"
+targetname: "6"
+}
+node: {
+title: "1"
+label: "1[
+1 : move #10 i_1 ]"
+}
+node: {
+title: "2"
+label: "2[
+13 : phi i_13 i_1 i_11 ,
+2 : cmp i_13 #10 ,
+3 : bge (2) [3] ]"
+}
+node: {
+title: "3"
+label: "3[
+4 : add y_4 #2 ,
+5 : move (4) y_5 ,
+6 : add x_6 #2 ,
+7 : move (6) z_7 ,
+8 : add y_5 z_7 ,
+9 : move (8) d_9 ,
+10 : add i_13 #1 ,
+11 : move (10) i_11 ,
+12 : bra [2] ]"
+}
+node: {
+title: "4"
+label: "4[
+14 : return d_9 ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "4"
+}
+edge: { sourcename: "3"
+targetname: "2"
+}
+node: {
+title: "12"
+label: "12[
+40 : move #10 x_40 ,
+41 : move #10 y_41 ,
+42 : move #10 z_42 ,
+43 : bar x_40 z_42 ,
+44 : foo ,
+45 : move (44) c_45 ,
+46 : write c_45 ]"
+}
+}

@@ -1,0 +1,198 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+]"
+}
+node: {
+title: "2"
+label: "2[
+9 : cmp #1 #2 ,
+10 : bge (9) [10] ]"
+}
+node: {
+title: "3"
+label: "3[
+11 : add #1 #1 ,
+13 : add #1 #5 ]"
+}
+node: {
+title: "4"
+label: "4[
+15 : cmp #2 #3 ,
+16 : bge (15) [9] ]"
+}
+node: {
+title: "5"
+label: "5[
+17 : mul #3 #3 ]"
+}
+node: {
+title: "6"
+label: "6[
+24 : phi (11) (21) ,
+19 : cmp (24) (17) ,
+20 : bge (19) [8] ]"
+}
+node: {
+title: "7"
+label: "7[
+21 : add #1 (24) ,
+23 : bra [6] ]"
+}
+node: {
+title: "8"
+label: "8[
+]"
+}
+node: {
+title: "9"
+label: "9[
+25 : phi (11) (24) ,
+26 : phi #3 (17) ]"
+}
+node: {
+title: "10"
+label: "10[
+28 : sub #2 #1 ]"
+}
+node: {
+title: "11"
+label: "11[
+32 : cmp (28) #3 ,
+33 : bge (32) [16] ]"
+}
+node: {
+title: "12"
+label: "12[
+34 : mul #3 #3 ]"
+}
+node: {
+title: "13"
+label: "13[
+44 : phi (34) (40) ,
+43 : phi (28) (38) ,
+36 : cmp (43) (44) ,
+37 : bge (36) [15] ]"
+}
+node: {
+title: "14"
+label: "14[
+38 : add #1 (43) ,
+40 : sub (44) #1 ,
+42 : bra [13] ]"
+}
+node: {
+title: "15"
+label: "15[
+]"
+}
+node: {
+title: "16"
+label: "16[
+45 : mul #3 #4 ,
+47 : add #1 #4 ]"
+}
+node: {
+title: "17"
+label: "17[
+49 : phi (43) (28) ,
+50 : phi (44) (45) ,
+51 : phi #4 (47) ]"
+}
+node: {
+title: "18"
+label: "18[
+53 : phi (25) #1 ,
+54 : phi #2 (49) ,
+55 : phi (26) (50) ,
+56 : phi #4 (51) ,
+57 : phi (13) #5 ,
+58 : phi #6 (30) ,
+60 : phi #8 #425 ,
+61 : write (53) ,
+62 : write (54) ,
+63 : write (55) ,
+64 : write (56) ,
+65 : write (57) ,
+66 : write (58) ,
+67 : write (60) ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "10"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "9"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "7"
+}
+edge: { sourcename: "6"
+targetname: "8"
+}
+edge: { sourcename: "7"
+targetname: "6"
+}
+edge: { sourcename: "8"
+targetname: "9"
+}
+edge: { sourcename: "9"
+targetname: "18"
+}
+edge: { sourcename: "10"
+targetname: "11"
+}
+edge: { sourcename: "11"
+targetname: "16"
+}
+edge: { sourcename: "11"
+targetname: "12"
+}
+edge: { sourcename: "12"
+targetname: "13"
+}
+edge: { sourcename: "13"
+targetname: "14"
+}
+edge: { sourcename: "13"
+targetname: "15"
+}
+edge: { sourcename: "14"
+targetname: "13"
+}
+edge: { sourcename: "15"
+targetname: "17"
+}
+edge: { sourcename: "16"
+targetname: "17"
+}
+edge: { sourcename: "17"
+targetname: "18"
+}
+node: {
+title: "19"
+label: "19[
+69 : foo ]"
+}
+}

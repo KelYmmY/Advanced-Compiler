@@ -1,0 +1,20 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : add FP abase ,
+2 : mul #4 i_2 ,
+3 : adda (1) (2) ,
+4 : load (3) ,
+7 : mul #4 j_7 ,
+8 : adda (1) (7) ,
+9 : store (4) (8) ,
+13 : load (3) ]"
+}
+}

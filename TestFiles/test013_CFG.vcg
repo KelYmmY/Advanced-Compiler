@@ -1,0 +1,223 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : move #1 a_1 ,
+2 : move #2 b_2 ,
+3 : move #3 c_3 ,
+4 : move #4 d_4 ,
+5 : move #5 e_5 ,
+6 : move #6 f_6 ,
+7 : move #7 g_7 ,
+8 : move #8 h_8 ]"
+}
+node: {
+title: "2"
+label: "2[
+9 : cmp a_1 b_2 ,
+10 : bge (9) [10] ]"
+}
+node: {
+title: "3"
+label: "3[
+11 : add a_1 #1 ,
+12 : move (11) a_12 ,
+13 : add e_5 #1 ,
+14 : move (13) e_14 ]"
+}
+node: {
+title: "4"
+label: "4[
+15 : cmp b_2 c_3 ,
+16 : bge (15) [9] ]"
+}
+node: {
+title: "5"
+label: "5[
+17 : mul c_3 #3 ,
+18 : move (17) c_18 ]"
+}
+node: {
+title: "6"
+label: "6[
+24 : phi a_24 a_12 a_22 ,
+19 : cmp a_24 c_18 ,
+20 : bge (19) [8] ]"
+}
+node: {
+title: "7"
+label: "7[
+21 : add a_24 #1 ,
+22 : move (21) a_22 ,
+23 : bra [6] ]"
+}
+node: {
+title: "8"
+label: "8[
+]"
+}
+node: {
+title: "9"
+label: "9[
+25 : phi a_25 a_12 a_24 ,
+26 : phi c_26 c_3 c_18 ,
+27 : move #9 g_27 ,
+28 : bra [18] ]"
+}
+node: {
+title: "10"
+label: "10[
+29 : sub b_2 #1 ,
+30 : move (29) b_30 ,
+31 : add f_6 #1 ,
+32 : move (31) f_32 ]"
+}
+node: {
+title: "11"
+label: "11[
+33 : cmp b_30 c_3 ,
+34 : bge (33) [16] ]"
+}
+node: {
+title: "12"
+label: "12[
+35 : mul c_3 #3 ,
+36 : move (35) c_36 ]"
+}
+node: {
+title: "13"
+label: "13[
+45 : phi c_45 c_36 c_42 ,
+44 : phi b_44 b_30 b_40 ,
+37 : cmp b_44 c_45 ,
+38 : bge (37) [15] ]"
+}
+node: {
+title: "14"
+label: "14[
+39 : add b_44 #1 ,
+40 : move (39) b_40 ,
+41 : sub c_45 #1 ,
+42 : move (41) c_42 ,
+43 : bra [13] ]"
+}
+node: {
+title: "15"
+label: "15[
+46 : bra [17] ]"
+}
+node: {
+title: "16"
+label: "16[
+47 : mul c_3 #4 ,
+48 : move (47) c_48 ,
+49 : add d_4 #1 ,
+50 : move (49) d_50 ]"
+}
+node: {
+title: "17"
+label: "17[
+51 : phi b_51 b_44 b_30 ,
+52 : phi c_52 c_45 c_48 ,
+53 : phi d_53 d_4 d_50 ,
+54 : move #425 h_54 ]"
+}
+node: {
+title: "18"
+label: "18[
+55 : phi a_55 a_25 a_1 ,
+56 : phi b_56 b_2 b_51 ,
+57 : phi c_57 c_26 c_52 ,
+58 : phi d_58 d_4 d_53 ,
+59 : phi e_59 e_14 e_5 ,
+60 : phi f_60 f_6 f_32 ,
+61 : phi g_61 g_27 g_7 ,
+62 : phi h_62 h_8 h_54 ,
+63 : write a_55 ,
+64 : write b_56 ,
+65 : write c_57 ,
+66 : write d_58 ,
+67 : write e_59 ,
+68 : write f_60 ,
+69 : write h_62 ,
+70 : end ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "10"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "9"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "7"
+}
+edge: { sourcename: "6"
+targetname: "8"
+}
+edge: { sourcename: "7"
+targetname: "6"
+}
+edge: { sourcename: "8"
+targetname: "9"
+}
+edge: { sourcename: "9"
+targetname: "18"
+}
+edge: { sourcename: "10"
+targetname: "11"
+}
+edge: { sourcename: "11"
+targetname: "16"
+}
+edge: { sourcename: "11"
+targetname: "12"
+}
+edge: { sourcename: "12"
+targetname: "13"
+}
+edge: { sourcename: "13"
+targetname: "14"
+}
+edge: { sourcename: "13"
+targetname: "15"
+}
+edge: { sourcename: "14"
+targetname: "13"
+}
+edge: { sourcename: "15"
+targetname: "17"
+}
+edge: { sourcename: "16"
+targetname: "17"
+}
+edge: { sourcename: "17"
+targetname: "18"
+}
+node: {
+title: "19"
+label: "19[
+71 : foo ,
+72 : end ]"
+}
+}

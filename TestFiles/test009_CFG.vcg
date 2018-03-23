@@ -1,0 +1,157 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : move #1 a_1 ,
+2 : move #2 b_2 ,
+3 : move #3 c_3 ]"
+}
+node: {
+title: "2"
+label: "2[
+4 : cmp a_1 b_2 ,
+5 : ble (4) [10] ]"
+}
+node: {
+title: "3"
+label: "3[
+6 : add a_1 #1 ,
+7 : move (6) a_7 ]"
+}
+node: {
+title: "4"
+label: "4[
+8 : cmp a_7 b_2 ,
+9 : bge (8) [9] ]"
+}
+node: {
+title: "5"
+label: "5[
+10 : mul a_7 #4 ,
+11 : move (10) a_11 ]"
+}
+node: {
+title: "6"
+label: "6[
+12 : cmp c_3 a_11 ,
+13 : beq (12) [8] ]"
+}
+node: {
+title: "7"
+label: "7[
+14 : move a_11 c_14 ]"
+}
+node: {
+title: "8"
+label: "8[
+15 : phi c_15 c_3 c_14 ]"
+}
+node: {
+title: "9"
+label: "9[
+16 : phi a_16 a_7 a_11 ,
+17 : phi c_17 c_3 c_15 ,
+18 : bra [15] ]"
+}
+node: {
+title: "10"
+label: "10[
+19 : add b_2 #5 ,
+20 : move (19) b_20 ]"
+}
+node: {
+title: "11"
+label: "11[
+21 : cmp a_1 b_20 ,
+22 : bge (21) [13] ]"
+}
+node: {
+title: "12"
+label: "12[
+23 : sub a_1 #2 ,
+24 : move (23) a_24 ,
+25 : bra [14] ]"
+}
+node: {
+title: "13"
+label: "13[
+26 : add a_1 #3 ,
+27 : move (26) a_27 ]"
+}
+node: {
+title: "14"
+label: "14[
+28 : phi a_28 a_24 a_27 ]"
+}
+node: {
+title: "15"
+label: "15[
+29 : phi a_29 a_16 a_28 ,
+30 : phi b_30 b_2 b_20 ,
+31 : phi c_31 c_17 c_3 ,
+32 : add a_29 #1 ,
+33 : move (32) a_33 ,
+34 : write a_33 ,
+35 : end ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "10"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "9"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "7"
+}
+edge: { sourcename: "6"
+targetname: "8"
+}
+edge: { sourcename: "7"
+targetname: "8"
+}
+edge: { sourcename: "8"
+targetname: "9"
+}
+edge: { sourcename: "9"
+targetname: "15"
+}
+edge: { sourcename: "10"
+targetname: "11"
+}
+edge: { sourcename: "11"
+targetname: "12"
+}
+edge: { sourcename: "11"
+targetname: "13"
+}
+edge: { sourcename: "12"
+targetname: "14"
+}
+edge: { sourcename: "13"
+targetname: "14"
+}
+edge: { sourcename: "14"
+targetname: "15"
+}
+}

@@ -1,0 +1,17 @@
+Common Subexpression Elimination and Copy Propagation: 
+	instruction 1 replaced by #51
+	instruction 3 replaced by (2)
+
+
+Dead Code Elimination: 
+
+
+PHI Function Elimination: 
+
+
+Machine Code: 
+	0 : ADDI  29 28 0
+	1 : ADDI  1 0 2
+	2 : MULI  1 1 51
+	3 : WRD  1
+	4 : RET  0

@@ -1,0 +1,127 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "2"
+label: "2[
+7 : write #35 ,
+8 : move #3 b_8 ,
+9 : move #4 c_9 ,
+10 : add b_8 c_9 ,
+11 : return (10) ,
+12 : end ]"
+}
+node: {
+title: "1"
+label: "1[
+1 : write #55 ,
+2 : move #2 b_2 ,
+3 : move #3 c_3 ,
+4 : add b_2 c_3 ,
+5 : return (4) ,
+6 : end ]"
+}
+node: {
+title: "3"
+label: "3[
+13 : add FP abase ,
+14 : mul #10 #4 ,
+15 : adda (13) (14) ,
+16 : mul #2 #4 ,
+17 : adda (15) (16) ,
+18 : mul #3 #4 ,
+19 : adda (17) (18) ,
+20 : store #1 (19) ,
+21 : add FP abase ,
+22 : mul #10 #4 ,
+23 : adda (21) (22) ,
+24 : mul #2 #4 ,
+25 : adda (23) (24) ,
+26 : mul #2 #4 ,
+27 : adda (25) (26) ,
+28 : store #2 (27) ]"
+}
+node: {
+title: "4"
+label: "4[
+29 : add FP abase ,
+30 : mul #10 #4 ,
+31 : adda (29) (30) ,
+32 : mul #2 #4 ,
+33 : adda (31) (32) ,
+34 : mul #3 #4 ,
+35 : adda (33) (34) ,
+36 : load (35) ,
+37 : add FP abase ,
+38 : mul #10 #4 ,
+39 : adda (37) (38) ,
+40 : mul #2 #4 ,
+41 : adda (39) (40) ,
+42 : mul #2 #4 ,
+43 : adda (41) (42) ,
+44 : load (43) ,
+45 : cmp (36) (44) ,
+46 : ble (45) [6] ]"
+}
+node: {
+title: "5"
+label: "5[
+47 : foo ,
+48 : add FP abase ,
+49 : mul #10 #4 ,
+50 : adda (48) (49) ,
+51 : mul #2 #4 ,
+52 : adda (50) (51) ,
+53 : mul #1 #4 ,
+54 : adda (52) (53) ,
+55 : store (47) (54) ,
+56 : bra [7] ]"
+}
+node: {
+title: "6"
+label: "6[
+57 : foo ,
+58 : add FP abase ,
+59 : mul #10 #4 ,
+60 : adda (58) (59) ,
+61 : mul #2 #4 ,
+62 : adda (60) (61) ,
+63 : mul #1 #4 ,
+64 : adda (62) (63) ,
+65 : store (57) (64) ]"
+}
+node: {
+title: "7"
+label: "7[
+66 : add FP abase ,
+67 : mul #10 #4 ,
+68 : adda (66) (67) ,
+69 : mul #2 #4 ,
+70 : adda (68) (69) ,
+71 : mul #1 #4 ,
+72 : adda (70) (71) ,
+73 : load (72) ,
+74 : move (73) b_74 ,
+75 : write b_74 ,
+76 : end ]"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "6"
+}
+edge: { sourcename: "5"
+targetname: "7"
+}
+edge: { sourcename: "6"
+targetname: "7"
+}
+}

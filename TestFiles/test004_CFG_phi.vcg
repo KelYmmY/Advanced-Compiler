@@ -1,0 +1,120 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : add R1 FP argbase ,
+2 : mul R2 #1 #4 ,
+3 : adda R2 R1 R2 ,
+4 : store #a1 R2 ,
+6 : mul R3 #2 #4 ,
+7 : adda R3 R1 R3 ,
+8 : store #a2 R3 ,
+10 : mul R3 #3 #4 ,
+11 : adda R3 R1 R3 ,
+12 : store #a3 R3 ,
+14 : mul R3 #4 #4 ,
+15 : adda R3 R1 R3 ,
+16 : store #a4 R3 ,
+18 : mul R3 #4 #5 ,
+19 : adda R1 R1 R3 ,
+20 : store #a5 R1 ,
+26 : load R1 R2 ,
+88 : move #2 R2 ,
+90 : move R1 R3 ]"
+}
+node: {
+title: "2"
+label: "2[
+28 : cmp R1 R2 #5 ,
+29 : bgt R1 [7] ]"
+}
+node: {
+title: "3"
+label: "3[
+]"
+}
+node: {
+title: "4"
+label: "4[
+31 : mul R4 #4 R2 ,
+32 : adda R1 R1 R4 ,
+33 : load R4 R1 ,
+34 : cmp R4 R4 R3 ,
+35 : ble R4 [6] ]"
+}
+node: {
+title: "5"
+label: "5[
+39 : load R1 R1 ,
+91 : move R1 R3 ]"
+}
+node: {
+title: "6"
+label: "6[
+42 : add R1 #1 R2 ,
+89 : move R1 R2 ,
+44 : bra [2] ]"
+}
+node: {
+title: "7"
+label: "7[
+47 : return R3 ,
+48 : end ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "7"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "6"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "2"
+}
+node: {
+title: "8"
+label: "8[
+49 : add R1 FP inputbase ,
+50 : mul R2 #1 #4 ,
+51 : adda R5 R1 R2 ,
+52 : store #22 R5 ,
+54 : mul R2 #2 #4 ,
+55 : adda R4 R1 R2 ,
+56 : store #61 R4 ,
+58 : mul R2 #3 #4 ,
+59 : adda R3 R1 R2 ,
+60 : store #17 R3 ,
+62 : mul R2 #4 #4 ,
+63 : adda R2 R1 R2 ,
+64 : store #34 R2 ,
+66 : mul R6 #4 #5 ,
+67 : adda R1 R1 R6 ,
+68 : store #11 R1 ,
+72 : load R5 R5 ,
+76 : load R4 R4 ,
+80 : load R3 R3 ,
+84 : load R1 R2 ,
+85 : max R5 R4 R3 R1 ,
+87 : end ]"
+}
+}

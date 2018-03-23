@@ -1,0 +1,47 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : return #14 ]"
+}
+node: {
+title: "2"
+label: "2[
+2 : move #1 b_2 ,
+3 : move #19 c_3 ,
+4 : add FP abase ,
+5 : mul #4 #4 ,
+6 : adda (4) (5) ,
+7 : mul #9 #4 ,
+8 : adda (6) (7) ,
+9 : foo ,
+10 : add #1 (9) ,
+11 : mul (10) #4 ,
+12 : adda (8) (11) ,
+13 : mul b_2 c_3 ,
+14 : mul (13) #4 ,
+15 : adda (12) (14) ,
+16 : store #45 (15) ,
+17 : add FP abase ,
+18 : mul #4 #4 ,
+19 : adda (17) (18) ,
+20 : mul #9 #4 ,
+21 : adda (19) (20) ,
+22 : foo ,
+23 : add (22) #1 ,
+24 : mul (23) #4 ,
+25 : adda (21) (24) ,
+26 : mul c_3 b_2 ,
+27 : mul (26) #4 ,
+28 : adda (25) (27) ,
+29 : load (28) ,
+30 : add (29) #2 ,
+31 : move (30) d_31 ]"
+}
+}

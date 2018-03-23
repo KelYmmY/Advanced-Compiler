@@ -1,0 +1,152 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : add FP argbase ,
+2 : mul #1 #4 ,
+3 : adda (1) (2) ,
+4 : store #a1 (3) ,
+5 : add FP argbase ,
+6 : mul #2 #4 ,
+7 : adda (5) (6) ,
+8 : store #a2 (7) ,
+9 : add FP argbase ,
+10 : mul #3 #4 ,
+11 : adda (9) (10) ,
+12 : store #a3 (11) ,
+13 : add FP argbase ,
+14 : mul #4 #4 ,
+15 : adda (13) (14) ,
+16 : store #a4 (15) ,
+17 : add FP argbase ,
+18 : mul #5 #4 ,
+19 : adda (17) (18) ,
+20 : store #a5 (19) ,
+21 : move #5 size_21 ,
+22 : move #2 i_22 ,
+23 : add FP argbase ,
+24 : mul #1 #4 ,
+25 : adda (23) (24) ,
+26 : load (25) ,
+27 : move (26) temp_27 ]"
+}
+node: {
+title: "2"
+label: "2[
+46 : phi i_46 i_22 i_43 ,
+45 : phi temp_45 temp_27 temp_41 ,
+28 : cmp i_46 size_21 ,
+29 : bgt (28) [7] ]"
+}
+node: {
+title: "3"
+label: "3[
+]"
+}
+node: {
+title: "4"
+label: "4[
+30 : add FP argbase ,
+31 : mul i_46 #4 ,
+32 : adda (30) (31) ,
+33 : load (32) ,
+34 : cmp (33) temp_45 ,
+35 : ble (34) [6] ]"
+}
+node: {
+title: "5"
+label: "5[
+36 : add FP argbase ,
+37 : mul i_46 #4 ,
+38 : adda (36) (37) ,
+39 : load (38) ,
+40 : move (39) temp_40 ]"
+}
+node: {
+title: "6"
+label: "6[
+41 : phi temp_41 temp_45 temp_40 ,
+42 : add i_46 #1 ,
+43 : move (42) i_43 ,
+44 : bra [2] ]"
+}
+node: {
+title: "7"
+label: "7[
+47 : return temp_45 ,
+48 : end ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "7"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "6"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "2"
+}
+node: {
+title: "8"
+label: "8[
+49 : add FP inputbase ,
+50 : mul #1 #4 ,
+51 : adda (49) (50) ,
+52 : store #22 (51) ,
+53 : add FP inputbase ,
+54 : mul #2 #4 ,
+55 : adda (53) (54) ,
+56 : store #61 (55) ,
+57 : add FP inputbase ,
+58 : mul #3 #4 ,
+59 : adda (57) (58) ,
+60 : store #17 (59) ,
+61 : add FP inputbase ,
+62 : mul #4 #4 ,
+63 : adda (61) (62) ,
+64 : store #34 (63) ,
+65 : add FP inputbase ,
+66 : mul #5 #4 ,
+67 : adda (65) (66) ,
+68 : store #11 (67) ,
+69 : add FP inputbase ,
+70 : mul #1 #4 ,
+71 : adda (69) (70) ,
+72 : load (71) ,
+73 : add FP inputbase ,
+74 : mul #2 #4 ,
+75 : adda (73) (74) ,
+76 : load (75) ,
+77 : add FP inputbase ,
+78 : mul #3 #4 ,
+79 : adda (77) (78) ,
+80 : load (79) ,
+81 : add FP inputbase ,
+82 : mul #4 #4 ,
+83 : adda (81) (82) ,
+84 : load (83) ,
+85 : max (72) (76) (80) (84) ,
+86 : move (85) maxnumber_86 ,
+87 : end ]"
+}
+}

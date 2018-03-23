@@ -1,0 +1,17 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : add #1 #1 ,
+2 : mul (1) #2 ,
+3 : div (2) #2 ,
+4 : sub (3) #1 ,
+6 : write (4) ]"
+}
+}

@@ -1,0 +1,146 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+]"
+}
+node: {
+title: "2"
+label: "2[
+4 : cmp #1 #2 ,
+5 : ble (4) [10] ]"
+}
+node: {
+title: "3"
+label: "3[
+6 : add #1 #1 ]"
+}
+node: {
+title: "4"
+label: "4[
+8 : cmp (6) #2 ,
+9 : bge (8) [9] ]"
+}
+node: {
+title: "5"
+label: "5[
+10 : mul (6) #4 ]"
+}
+node: {
+title: "6"
+label: "6[
+12 : cmp #3 (10) ,
+13 : beq (12) [8] ]"
+}
+node: {
+title: "7"
+label: "7[
+]"
+}
+node: {
+title: "8"
+label: "8[
+]"
+}
+node: {
+title: "9"
+label: "9[
+16 : phi (6) (10) ,
+18 : bra [15] ]"
+}
+node: {
+title: "10"
+label: "10[
+19 : add #2 #5 ]"
+}
+node: {
+title: "11"
+label: "11[
+21 : cmp #1 (19) ,
+22 : bge (21) [13] ]"
+}
+node: {
+title: "12"
+label: "12[
+23 : sub #1 #2 ,
+25 : bra [14] ]"
+}
+node: {
+title: "13"
+label: "13[
+26 : add #1 #3 ]"
+}
+node: {
+title: "14"
+label: "14[
+28 : phi (23) (26) ]"
+}
+node: {
+title: "15"
+label: "15[
+29 : phi (16) (28) ,
+32 : add #1 (29) ,
+34 : write (32) ,
+35 : end ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "10"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "9"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "7"
+}
+edge: { sourcename: "6"
+targetname: "8"
+}
+edge: { sourcename: "7"
+targetname: "8"
+}
+edge: { sourcename: "8"
+targetname: "9"
+}
+edge: { sourcename: "9"
+targetname: "15"
+}
+edge: { sourcename: "10"
+targetname: "11"
+}
+edge: { sourcename: "11"
+targetname: "12"
+}
+edge: { sourcename: "11"
+targetname: "13"
+}
+edge: { sourcename: "12"
+targetname: "14"
+}
+edge: { sourcename: "13"
+targetname: "14"
+}
+edge: { sourcename: "14"
+targetname: "15"
+}
+}

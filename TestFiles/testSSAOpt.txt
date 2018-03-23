@@ -1,0 +1,11 @@
+block 1
+1 : move a_1 b_1
+3 : add (1) (1)
+5 : add a_5 (1)
+7 : cmp a_7 #0
+8 : bge (7) [3]
+block 2
+9 : add (3) (5)
+block 3
+block 4
+13 : phi d_13 d_10 d_12

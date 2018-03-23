@@ -1,0 +1,108 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : add FP foobase ,
+2 : mul #2 a_2 ,
+3 : sub (2) #6 ,
+4 : mul (3) #4 ,
+5 : adda (1) (4) ,
+6 : load (5) ]"
+}
+node: {
+title: "2"
+label: "2[
+44 : phi (6) (6) ,
+8 : cmp #2 #3 ,
+9 : bge (8) [9] ]"
+}
+node: {
+title: "3"
+label: "3[
+]"
+}
+node: {
+title: "4"
+label: "4[
+23 : cmp #4 (6) ,
+24 : bge (23) [8] ]"
+}
+node: {
+title: "5"
+label: "5[
+25 : cmp #3 #4 ,
+26 : bge (25) [7] ]"
+}
+node: {
+title: "6"
+label: "6[
+27 : add FP boobase ,
+28 : mul (44) #4 ,
+29 : adda (27) (28) ,
+30 : store #3 (29) ]"
+}
+node: {
+title: "7"
+label: "7[
+32 : mul #2 #4 ,
+33 : adda (1) (32) ,
+34 : store #5 (33) ]"
+}
+node: {
+title: "8"
+label: "8[
+35 : bra [4] ]"
+}
+node: {
+title: "9"
+label: "9[
+43 : bra [2] ]"
+}
+node: {
+title: "10"
+label: "10[
+]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "10"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "9"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "5"
+targetname: "7"
+}
+edge: { sourcename: "6"
+targetname: "8"
+}
+edge: { sourcename: "7"
+targetname: "8"
+}
+edge: { sourcename: "8"
+targetname: "4"
+}
+edge: { sourcename: "9"
+targetname: "2"
+}
+}

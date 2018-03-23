@@ -1,0 +1,9 @@
+//Simple parsing test
+main
+var x, y;
+array [ 4 ] a;
+{
+    let x <- a[i];
+    let a[j] <- x;
+    let y <- a[i]
+}.

@@ -1,0 +1,24 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "2"
+label: "2[
+8 : phi #10 (5) ,
+3 : cmp #10 #1000 ,
+4 : bge (3) [3] ]"
+}
+node: {
+title: "3"
+label: "3[
+5 : add (8) #1 ,
+7 : bra [2] ]"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+}

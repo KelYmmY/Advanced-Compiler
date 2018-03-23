@@ -1,0 +1,65 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : add b_1 c_1 ,
+2 : move (1) a_2 ,
+3 : add b_3 c_3 ,
+4 : move (3) d_4 ,
+5 : add c_5 b_5 ,
+6 : add (5) d_4 ,
+7 : move (6) e_7 ,
+8 : cmp a_2 d_4 ,
+9 : beq (8) [3] ]"
+}
+node: {
+title: "2"
+label: "2[
+10 : add c_10 b_10 ,
+11 : add (10) d_4 ,
+12 : move (11) e_12 ,
+13 : mul a_2 d_4 ,
+14 : move (13) f_14 ,
+15 : mul d_4 a_2 ,
+16 : add (15) #4 ,
+17 : move (16) g_17 ,
+18 : move #5 b_18 ,
+19 : add c_19 b_18 ,
+20 : add (19) d_4 ,
+21 : move (20) e_21 ]"
+}
+node: {
+title: "3"
+label: "3[
+22 : div a_2 d_4 ,
+23 : move (22) f_23 ,
+24 : div d_4 a_2 ,
+25 : move (24) g_25 ]"
+}
+node: {
+title: "4"
+label: "4[
+26 : phi e_26 e_21 e_7 ,
+27 : phi f_27 f_14 f_23 ,
+28 : phi g_28 g_17 g_25 ,
+29 : mul a_2 d_4 ,
+30 : move (29) f_30 ,
+31 : div d_4 a_2 ,
+32 : move (31) g_32 ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "1"
+targetname: "3"
+}
+edge: { sourcename: "1"
+targetname: "4"
+}
+}

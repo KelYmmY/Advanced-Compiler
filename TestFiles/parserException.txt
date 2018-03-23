@@ -1,0 +1,9 @@
+main
+var i;
+{
+    let i <- 0;
+    while i < 9 do
+  		let i <- i + 1;
+   	od;
+   	return i + 4
+}

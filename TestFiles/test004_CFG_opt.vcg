@@ -1,0 +1,119 @@
+graph: { title: "Control Flow Graph"
+manhattan_edge: yes
+orientation: top_to_bottom
+create_reference_nodes: no
+create_loop_tree: no
+backloop_routing: no
+layout_against_orientation: no
+node: {
+title: "1"
+label: "1[
+1 : add FP argbase ,
+2 : mul #1 #4 ,
+3 : adda (1) (2) ,
+4 : store #a1 (3) ,
+6 : mul #2 #4 ,
+7 : adda (1) (6) ,
+8 : store #a2 (7) ,
+10 : mul #3 #4 ,
+11 : adda (1) (10) ,
+12 : store #a3 (11) ,
+14 : mul #4 #4 ,
+15 : adda (1) (14) ,
+16 : store #a4 (15) ,
+18 : mul #4 #5 ,
+19 : adda (1) (18) ,
+20 : store #a5 (19) ,
+26 : load (3) ]"
+}
+node: {
+title: "2"
+label: "2[
+46 : phi #2 (42) ,
+45 : phi (26) (41) ,
+28 : cmp (46) #5 ,
+29 : bgt (28) [7] ]"
+}
+node: {
+title: "3"
+label: "3[
+]"
+}
+node: {
+title: "4"
+label: "4[
+31 : mul #4 (46) ,
+32 : adda (1) (31) ,
+33 : load (32) ,
+34 : cmp (33) (45) ,
+35 : ble (34) [6] ]"
+}
+node: {
+title: "5"
+label: "5[
+39 : load (32) ]"
+}
+node: {
+title: "6"
+label: "6[
+41 : phi (45) (39) ,
+42 : add #1 (46) ,
+44 : bra [2] ]"
+}
+node: {
+title: "7"
+label: "7[
+47 : return (45) ,
+48 : end ]"
+}
+edge: { sourcename: "1"
+targetname: "2"
+}
+edge: { sourcename: "2"
+targetname: "3"
+}
+edge: { sourcename: "2"
+targetname: "7"
+}
+edge: { sourcename: "3"
+targetname: "4"
+}
+edge: { sourcename: "4"
+targetname: "5"
+}
+edge: { sourcename: "4"
+targetname: "6"
+}
+edge: { sourcename: "5"
+targetname: "6"
+}
+edge: { sourcename: "6"
+targetname: "2"
+}
+node: {
+title: "8"
+label: "8[
+49 : add FP inputbase ,
+50 : mul #1 #4 ,
+51 : adda (49) (50) ,
+52 : store #22 (51) ,
+54 : mul #2 #4 ,
+55 : adda (49) (54) ,
+56 : store #61 (55) ,
+58 : mul #3 #4 ,
+59 : adda (49) (58) ,
+60 : store #17 (59) ,
+62 : mul #4 #4 ,
+63 : adda (49) (62) ,
+64 : store #34 (63) ,
+66 : mul #4 #5 ,
+67 : adda (49) (66) ,
+68 : store #11 (67) ,
+72 : load (51) ,
+76 : load (55) ,
+80 : load (59) ,
+84 : load (63) ,
+85 : max (72) (76) (80) (84) ,
+87 : end ]"
+}
+}

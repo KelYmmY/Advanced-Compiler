@@ -1,0 +1,23 @@
+main
+array[ 5 ] a;
+var b;
+var c;
+function foo( );
+{
+   call OutputNum(55);
+	let b <- 2;
+	let c <- 3;
+	return b + c
+};
+{
+	let a[ 3 ] <- 1;
+	let a[ 2 ] <- 2;
+	if a[ 3 ] > a[ 2 ] then
+		let a[ 1 ] <- call foo
+	else
+		let a[ 1 ] <- call foo
+	fi;
+
+	let b <- a[ 1 ];
+	call OutputNum(b)
+}.
